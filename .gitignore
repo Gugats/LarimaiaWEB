@@ -1,0 +1,6 @@
+/.idea
+
+/src/main/webapp/bower_components
+/larimaiawebapi.iml
+     *.iml
+

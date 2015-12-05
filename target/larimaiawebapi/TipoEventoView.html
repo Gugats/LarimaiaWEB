@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="appCrudAngular">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="bower_components/angular/angular-csp.css">
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+
+    <style type="text/css">
+    .todoName{
+        font-size: 15px;
+        border-bottom: 1px lightgray solid;
+        padding-bottom:5px;
+    }
+    </STYLE>
+</head>
+<body ng-controller="TipoEventoCtrl">
+
+    <div ng-cloak align='center'>
+        <h2 align="center">Cadastro de Tipo Evento</h2>
+
+        <md-input-container>
+            <label>Descrição</label>
+            <input align="middle" type="text" ng-model="tipoEvento.descricao"/>
+        </md-input-container>
+
+        <md-button class="md-raised md-primary" ng-click="salvar()" style="text-align:center">Salvar</md-button>
+        <md-button class="md-raised md-primary" ng-click="limpar()" style="text-align:center">Limpar</md-button>
+
+    </div>
+
+    <h3 align="center">Lista de Tipos de Evento</h3>
+
+    <div ng-cloak align="center">
+
+        <input type="text" placeholder="Filtrar" ng-model="busca"/>
+
+        <md-list>
+            <md-list-item class="md-3-line" ng-repeat="tipoEvento in tiposEvento | filter: busca">
+
+                <ul class="list-unstyled">
+
+                    <span class="todoName">{{"Descrição: "+ tipoEvento.descricao }}</span>
+
+                    <button ng-click="excluir(tipoEvento.idTipoEvento)"> Excluir</button>
+                    <button ng-click="editar(tipoEvento)"> Editar</button>
+
+                </ul>
+            </md-list-item>
+
+        </md-list>
+
+    </div>
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+
+    <script src="bower_components/angular-animate/angular-animate.min.js "></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/TipoEventoController.js"></script>
+</body>
+</html>
